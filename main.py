@@ -82,6 +82,9 @@ class Application(tk.Frame):
         self.parent.title("PRoPat Command Software")
         self.pack(fill=tk.BOTH, expand=1)
 
+        quitButton = tk.Button(self, text='Quit',command=self.quit)
+        quitButton.pack(side='bottom', padx=5, pady=5)
+
 
 def mainWindow():
     root = tk.Tk()
