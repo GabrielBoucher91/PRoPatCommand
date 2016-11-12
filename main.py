@@ -79,11 +79,21 @@ class Application(tk.Frame):
         self.initUI()
 
     def initUI(self):
+        #Main frame of the application
         self.parent.title("PRoPat Command Software")
         self.pack(fill=tk.BOTH, expand=1)
 
-        quitButton = tk.Button(self, text='Quit',command=self.quit)
-        quitButton.pack(side='bottom', padx=5, pady=5)
+        #Frames to layout the application
+        frame = tk.Frame(self,relief='raised',borderwidth=1,background='gold')
+        frame.pack(side=tk.TOP,fill=tk.X)
+
+        self.pack(fill=tk.BOTH,expand=True)
+
+        #Buttons and texts for the application
+        quitButton = tk.Button(frame,text='Quit',command=self.quit)
+        quitButton.pack(side='right', padx=10, pady=10)
+        okbutton=tk.Button(frame,text='Ok')
+        okbutton.pack(side='right')
 
 
 def mainWindow():
