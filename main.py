@@ -84,16 +84,47 @@ class Application(tk.Frame):
         self.pack(fill=tk.BOTH, expand=1)
 
         #Frames to layout the application
-        frame = tk.Frame(self,relief='raised',borderwidth=1,background='gold')
-        frame.pack(side=tk.TOP,fill=tk.X)
+        bottomcolor='teal'
+        bottomframe = tk.Frame(self,relief='raised',borderwidth=1,background=bottomcolor)
+        bottomframe.pack(side=tk.BOTTOM,fill=tk.X)
 
-        self.pack(fill=tk.BOTH,expand=True)
+
+        rightcolor='red'
+        rightframe=tk.Frame(self,relief='raised',borderwidth=1,background=rightcolor)
+        rightframe.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
+
+        leftcolor='gold'
+        leftframe=tk.Frame(self,relief='raised',borderwidth=1,background=leftcolor)
+        leftframe.pack(side=tk.LEFT,fill=tk.BOTH,expand=True)
 
         #Buttons and texts for the application
-        quitButton = tk.Button(frame,text='Quit',command=self.quit)
-        quitButton.pack(side='right', padx=10, pady=10)
-        okbutton=tk.Button(frame,text='Ok')
-        okbutton.pack(side='right')
+        #Bottom
+        comlabel=tk.Label(bottomframe,text='COM',background=bottomcolor)
+        comlabel.pack(side=tk.LEFT,padx=5,pady=5)
+
+        portentryvar=tk.StringVar()
+        portentryvar.set("1")
+        portentry=tk.Entry(bottomframe,width=7,textvariable=portentryvar)
+        portentry.pack(side=tk.LEFT,padx=5,pady=5)
+
+
+        okbutton=tk.Button(bottomframe,text='CONNECT')
+        okbutton.pack(side=tk.LEFT)
+
+        quitButton = tk.Button(bottomframe,text='DISCONNECT',command=self.quit)
+        quitButton.pack(side=tk.LEFT, padx=5, pady=5)
+
+        #Right
+        Rightlabel=tk.Label(rightframe,text='PID Management',background=rightcolor)
+        Rightlabel.pack(side=tk.TOP)
+
+        #Lefttop
+        leftlabel=tk.Label(leftframe,text='Axis Management',background=leftcolor)
+        leftlabel.pack(side=tk.TOP)
+
+
+
+
 
 
 def mainWindow():
