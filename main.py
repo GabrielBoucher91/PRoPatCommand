@@ -97,6 +97,10 @@ class Application(tk.Frame):
         leftframe=tk.Frame(self,relief='raised',borderwidth=1,background=leftcolor)
         leftframe.pack(side=tk.LEFT,fill=tk.BOTH,expand=True)
 
+        lefttopcolor='green'
+        lefttopframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=lefttopcolor)
+        lefttopframe.pack(side=tk.TOP,fill=tk.BOTH,expand=False)
+
         #Buttons and texts for the application
         #Bottom
         comlabel=tk.Label(bottomframe,text='COM',background=bottomcolor)
@@ -119,7 +123,7 @@ class Application(tk.Frame):
         Rightlabel.pack(side=tk.TOP)
 
         #Lefttop
-        leftlabel=tk.Label(leftframe,text='Axis Management',background=leftcolor)
+        leftlabel=tk.Label(lefttopframe,text='Axis Management',background=lefttopcolor)
         leftlabel.pack(side=tk.TOP)
 
 
