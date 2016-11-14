@@ -120,6 +120,76 @@ class Application(tk.Frame):
         Rightlabel=tk.Label(rightframe,text='PID Management',background=rightcolor,font=15)
         Rightlabel.pack(side=tk.TOP)
 
+        righttopframe1color='blue'
+        righttopframe1=tk.Frame(rightframe,background=righttopframe1color)
+        righttopframe1.pack(side=tk.TOP)
+
+        #Righttopframe1
+        kpxlabel=tk.Label(righttopframe1,text='Kpx',background=righttopframe1color)
+        kpxlabel.grid(row=0,column=0,padx=5,pady=3)
+
+        kpxentryvar=tk.StringVar()
+        kpxentry=tk.Entry(righttopframe1,width=10,textvariable=kpxentryvar)
+        kpxentry.grid(row=0,column=1,padx=5,pady=3)
+
+        kpylabel=tk.Label(righttopframe1,text='Kpy',background=righttopframe1color)
+        kpylabel.grid(row=0,column=2,padx=5,pady=3)
+
+        kpyentryvar=tk.StringVar()
+        kpyentry=tk.Entry(righttopframe1,width=10,textvariable=kpyentryvar)
+        kpyentry.grid(row=0,column=3,padx=5,pady=3)
+
+        kpzlabel=tk.Label(righttopframe1,text='Kpz',background=righttopframe1color)
+        kpzlabel.grid(row=0,column=4,padx=5,pady=3)
+
+        kpzentryvar=tk.StringVar()
+        kpzentry=tk.Entry(righttopframe1,width=10,textvariable=kpzentryvar)
+        kpzentry.grid(row=0,column=5,padx=5,pady=3)
+
+
+        kdxlabel=tk.Label(righttopframe1,text='Kdx',background=righttopframe1color)
+        kdxlabel.grid(row=1,column=0,padx=5,pady=3)
+
+        kdxentryvar=tk.StringVar()
+        kdxentry=tk.Entry(righttopframe1,width=10,textvariable=kpxentryvar)
+        kdxentry.grid(row=1,column=1,padx=5,pady=3)
+
+        kdylabel=tk.Label(righttopframe1,text='Kdy',background=righttopframe1color)
+        kdylabel.grid(row=1,column=2,padx=5,pady=3)
+
+        kdyentryvar=tk.StringVar()
+        kdyentry=tk.Entry(righttopframe1,width=10,textvariable=kpyentryvar)
+        kdyentry.grid(row=1,column=3,padx=5,pady=3)
+
+        kdzlabel=tk.Label(righttopframe1,text='Kdz',background=righttopframe1color)
+        kdzlabel.grid(row=1,column=4,padx=5,pady=3)
+
+        kdzentryvar=tk.StringVar()
+        kdzentry=tk.Entry(righttopframe1,width=10,textvariable=kpzentryvar)
+        kdzentry.grid(row=1,column=5,padx=5,pady=3)
+
+
+        kixlabel=tk.Label(righttopframe1,text='Kix',background=righttopframe1color)
+        kixlabel.grid(row=2,column=0,padx=5,pady=3)
+
+        kixentryvar=tk.StringVar()
+        kixentry=tk.Entry(righttopframe1,width=10,textvariable=kpxentryvar)
+        kixentry.grid(row=2,column=1,padx=5,pady=3)
+
+        kiylabel=tk.Label(righttopframe1,text='Kiy',background=righttopframe1color)
+        kiylabel.grid(row=2,column=2,padx=5,pady=3)
+
+        kiyentryvar=tk.StringVar()
+        kiyentry=tk.Entry(righttopframe1,width=10,textvariable=kpyentryvar)
+        kiyentry.grid(row=2,column=3,padx=5,pady=3)
+
+        kizlabel=tk.Label(righttopframe1,text='Kiz',background=righttopframe1color)
+        kizlabel.grid(row=2,column=4,padx=5,pady=3)
+
+        kizentryvar=tk.StringVar()
+        kizentry=tk.Entry(righttopframe1,width=10,textvariable=kpzentryvar)
+        kizentry.grid(row=2,column=5,padx=5,pady=3)
+
 
         #Left
         lefttopcolor='grey'
