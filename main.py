@@ -11,9 +11,9 @@
 import serial as sr
 import tkinter as tk
 import re
+
+
 #Class definition for the things to display and communicate
-
-
 class controllerPIDdisplay():                              #PID controller to display only
     def __init__(self, kp=1, ki=0.001, kd=0.05):
         self.__kp = kp
@@ -69,7 +69,7 @@ class dataAcquisition():                                    #Here's the data rec
     def clearData(self):
         slef.__data=[[None]*7]
 
-#Class definition for the application
+##############################################Class definition for the application####################################################
 
 
 class Application(tk.Frame):
@@ -93,13 +93,11 @@ class Application(tk.Frame):
         rightframe=tk.Frame(self,relief='raised',borderwidth=1,background=rightcolor)
         rightframe.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
 
-        leftcolor='gold'
+        leftcolor='grey'
         leftframe=tk.Frame(self,relief='raised',borderwidth=1,background=leftcolor)
         leftframe.pack(side=tk.LEFT,fill=tk.BOTH,expand=True)
 
-        lefttopcolor='green'
-        lefttopframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=lefttopcolor)
-        lefttopframe.pack(side=tk.TOP,fill=tk.BOTH,expand=False)
+
 
         #Buttons and texts for the application
         #Bottom
@@ -119,12 +117,70 @@ class Application(tk.Frame):
         quitButton.pack(side=tk.LEFT, padx=5, pady=5)
 
         #Right
-        Rightlabel=tk.Label(rightframe,text='PID Management',background=rightcolor)
+        Rightlabel=tk.Label(rightframe,text='PID Management',background=rightcolor,font=15)
         Rightlabel.pack(side=tk.TOP)
 
-        #Lefttop
-        leftlabel=tk.Label(lefttopframe,text='Axis Management',background=lefttopcolor)
+
+        #Left
+        lefttopcolor='grey'
+        lefttopframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=lefttopcolor)
+        lefttopframe.pack(side=tk.TOP,fill=tk.BOTH,expand=False)
+
+        leftbotcolor='green'
+        leftbotframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=leftbotcolor)
+        leftbotframe.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
+
+        #Lefttopframe
+        leftlabel=tk.Label(lefttopframe,text='Axis Management',background=lefttopcolor,font=15)
         leftlabel.pack(side=tk.TOP)
+
+        lefttopframe2=tk.Frame(lefttopframe,background=lefttopcolor)
+        lefttopframe2.pack(side=tk.BOTTOM)
+
+        clearxbuttoncolor='white'
+        clearxbutton=tk.Button(lefttopframe2,text='Clear X',background=clearxbuttoncolor)
+        clearxbutton.grid(row=0,column=0,padx=10,pady=5)
+
+        clearybuttoncolor='white'
+        clearybutton=tk.Button(lefttopframe2,text='Clear Y',background=clearybuttoncolor)
+        clearybutton.grid(row=0,column=1,padx=10,pady=5)
+
+        clearzbuttoncolor='white'
+        clearzbutton=tk.Button(lefttopframe2,text='Clear Z',background=clearzbuttoncolor)
+        clearzbutton.grid(row=0,column=2,padx=10,pady=5)
+
+        clearFFbuttoncolor='white'
+        clearFFbutton=tk.Button(lefttopframe2,text='Clear FF',background=clearFFbuttoncolor)
+        clearFFbutton.grid(row=0,column=3,padx=10,pady=5)
+
+        importxbuttoncolor='white'
+        importxbutton=tk.Button(lefttopframe2,text='Import X',background=importxbuttoncolor)
+        importxbutton.grid(row=1,column=0,padx=10,pady=5)
+
+        importybuttoncolor='white'
+        importybutton=tk.Button(lefttopframe2,text='Import X',background=importybuttoncolor)
+        importybutton.grid(row=1,column=1,padx=10,pady=5)
+
+        importzbuttoncolor='white'
+        importzbutton=tk.Button(lefttopframe2,text='Import X',background=importzbuttoncolor)
+        importzbutton.grid(row=1,column=2,padx=10,pady=5)
+
+        importFFbuttoncolor='white'
+        importFFbutton=tk.Button(lefttopframe2,text='Import X',background=importFFbuttoncolor)
+        importFFbutton.grid(row=1,column=3,padx=10,pady=5)
+
+        clearimportbuttoncolor='white'
+        clearimportbutton=tk.Button(lefttopframe2,text='Clear Import',background=clearimportbuttoncolor)
+        clearimportbutton.grid(row=3,column=0,columnspan=2,padx=10,pady=5)
+
+        downloadAxisbuttoncolor='white'
+        downloadAxisbutton=tk.Button(lefttopframe2,text='Download Axis',background=downloadAxisbuttoncolor)
+        downloadAxisbutton.grid(row=3,column=2,columnspan=2,padx=10,pady=5)
+
+        #Leftbotframe
+        leftbotlabel=tk.Label(leftbotframe,text='Data Acquisition',background=leftbotcolor,font=15)
+        leftbotlabel.pack(side=tk.TOP)
+
 
 
 
