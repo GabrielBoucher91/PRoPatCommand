@@ -27,19 +27,18 @@ class Application(tk.Frame):
         bottomframe.pack(side=tk.BOTTOM,fill=tk.X)
 
 
-        rightcolor='grey'
+        rightcolor='light grey'
         rightframe=tk.Frame(self,relief='raised',borderwidth=1,background=rightcolor)
         rightframe.pack(side=tk.RIGHT,fill=tk.BOTH,expand=True)
 
-        leftcolor='grey'
+        leftcolor='light grey'
         leftframe=tk.Frame(self,relief='raised',borderwidth=1,background=leftcolor)
         leftframe.pack(side=tk.LEFT,fill=tk.BOTH,expand=True)
 
 
 
         #Bottom
-        self.comlabelvar=tk.StringVar()
-        comlabel=tk.Label(bottomframe,text='COM',background=bottomcolor,textvariable=self.comlabelvar)
+        comlabel=tk.Label(bottomframe,text='COM',background=bottomcolor)
         comlabel.pack(side=tk.LEFT,padx=5,pady=5)
 
         portentryvar=tk.StringVar()
@@ -51,14 +50,14 @@ class Application(tk.Frame):
         self.okbutton=tk.Button(bottomframe,text='CONNECT')
         self.okbutton.pack(side=tk.LEFT)
 
-        quitButton = tk.Button(bottomframe,text='DISCONNECT',command=self.quit)
-        quitButton.pack(side=tk.LEFT, padx=15, pady=5)
+        self.quitButton = tk.Button(bottomframe,text='DISCONNECT',command=self.quit)
+        self.quitButton.pack(side=tk.LEFT, padx=15, pady=5)
 
         #Right
         Rightlabel=tk.Label(rightframe,text='PID Management',background=rightcolor,font=15)
         Rightlabel.pack(side=tk.TOP)
 
-        righttopframe1color='grey'
+        righttopframe1color='light grey'
         righttopframe1=tk.Frame(rightframe,background=righttopframe1color)
         righttopframe1.pack(side=tk.TOP)
 
@@ -70,59 +69,59 @@ class Application(tk.Frame):
         kpxlabel.grid(row=0,column=0,padx=5,pady=3)
 
         self.kpxentryvar=tk.StringVar()
-        kpxentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpxentryvar)
-        kpxentry.grid(row=0,column=1,padx=5,pady=3)
+        self.kpxentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpxentryvar)
+        self.kpxentry.grid(row=0,column=1,padx=5,pady=3)
 
         kpylabel=tk.Label(righttopframe1,text='Kpy',background=righttopframe1color)
         kpylabel.grid(row=0,column=2,padx=5,pady=3)
 
         self.kpyentryvar=tk.StringVar()
-        kpyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpyentryvar)
-        kpyentry.grid(row=0,column=3,padx=5,pady=3)
+        self.kpyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpyentryvar)
+        self.kpyentry.grid(row=0,column=3,padx=5,pady=3)
 
         kpzlabel=tk.Label(righttopframe1,text='Kpz',background=righttopframe1color)
         kpzlabel.grid(row=0,column=4,padx=5,pady=3)
 
         self.kpzentryvar=tk.StringVar()
-        kpzentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpzentryvar)
-        kpzentry.grid(row=0,column=5,padx=5,pady=3)
+        self.kpzentry=tk.Entry(righttopframe1,width=10,textvariable=self.kpzentryvar)
+        self.kpzentry.grid(row=0,column=5,padx=5,pady=3)
 
 
         kdxlabel=tk.Label(righttopframe1,text='Kdx',background=righttopframe1color)
         kdxlabel.grid(row=1,column=0,padx=5,pady=3)
 
         self.kdxentryvar=tk.StringVar()
-        kdxentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdxentryvar)
-        kdxentry.grid(row=1,column=1,padx=5,pady=3)
+        self.kdxentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdxentryvar)
+        self.kdxentry.grid(row=1,column=1,padx=5,pady=3)
 
         kdylabel=tk.Label(righttopframe1,text='Kdy',background=righttopframe1color)
         kdylabel.grid(row=1,column=2,padx=5,pady=3)
 
         self.kdyentryvar=tk.StringVar()
-        kdyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdyentryvar)
-        kdyentry.grid(row=1,column=3,padx=5,pady=3)
+        self.kdyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdyentryvar)
+        self.kdyentry.grid(row=1,column=3,padx=5,pady=3)
 
         kdzlabel=tk.Label(righttopframe1,text='Kdz',background=righttopframe1color)
         kdzlabel.grid(row=1,column=4,padx=5,pady=3)
 
         self.kdzentryvar=tk.StringVar()
-        kdzentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdzentryvar)
-        kdzentry.grid(row=1,column=5,padx=5,pady=3)
+        self.kdzentry=tk.Entry(righttopframe1,width=10,textvariable=self.kdzentryvar)
+        self.kdzentry.grid(row=1,column=5,padx=5,pady=3)
 
 
         kixlabel=tk.Label(righttopframe1,text='Kix',background=righttopframe1color)
         kixlabel.grid(row=2,column=0,padx=5,pady=3)
 
         self.kixentryvar=tk.StringVar()
-        kixentry=tk.Entry(righttopframe1,width=10,textvariable=self.kixentryvar)
-        kixentry.grid(row=2,column=1,padx=5,pady=3)
+        self.kixentry=tk.Entry(righttopframe1,width=10,textvariable=self.kixentryvar)
+        self.kixentry.grid(row=2,column=1,padx=5,pady=3)
 
         kiylabel=tk.Label(righttopframe1,text='Kiy',background=righttopframe1color)
         kiylabel.grid(row=2,column=2,padx=5,pady=3)
 
         self.kiyentryvar=tk.StringVar()
-        kiyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kiyentryvar)
-        kiyentry.grid(row=2,column=3,padx=5,pady=3)
+        self.kiyentry=tk.Entry(righttopframe1,width=10,textvariable=self.kiyentryvar)
+        self.kiyentry.grid(row=2,column=3,padx=5,pady=3)
 
         kizlabel=tk.Label(righttopframe1,text='Kiz',background=righttopframe1color)
         kizlabel.grid(row=2,column=4,padx=5,pady=3)
@@ -140,11 +139,11 @@ class Application(tk.Frame):
 
 
         #Left
-        lefttopcolor='grey'
+        lefttopcolor='light grey'
         lefttopframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=lefttopcolor)
         lefttopframe.pack(side=tk.TOP,fill=tk.BOTH,expand=False)
 
-        leftbotcolor='green'
+        leftbotcolor='light grey'
         leftbotframe=tk.Frame(leftframe,relief='raised',borderwidth=1,background=leftbotcolor)
         leftbotframe.pack(side=tk.TOP,fill=tk.BOTH,expand=True)
 
@@ -155,49 +154,60 @@ class Application(tk.Frame):
         lefttopframe2=tk.Frame(lefttopframe,background=lefttopcolor)
         lefttopframe2.pack(side=tk.BOTTOM)
 
-        clearxbuttoncolor='white'
-        clearxbutton=tk.Button(lefttopframe2,text='Clear X',background=clearxbuttoncolor)
-        clearxbutton.grid(row=0,column=0,padx=10,pady=5)
+        self.clearxbuttoncolor='white'
+        self.clearxbutton=tk.Button(lefttopframe2,text='Clear X',background=self.clearxbuttoncolor)
+        self.clearxbutton.grid(row=0,column=0,padx=10,pady=5)
 
-        clearybuttoncolor='white'
-        clearybutton=tk.Button(lefttopframe2,text='Clear Y',background=clearybuttoncolor)
-        clearybutton.grid(row=0,column=1,padx=10,pady=5)
+        self.clearybuttoncolor='white'
+        self.clearybutton=tk.Button(lefttopframe2,text='Clear Y',background=self.clearybuttoncolor)
+        self.clearybutton.grid(row=0,column=1,padx=10,pady=5)
 
-        clearzbuttoncolor='white'
-        clearzbutton=tk.Button(lefttopframe2,text='Clear Z',background=clearzbuttoncolor)
-        clearzbutton.grid(row=0,column=2,padx=10,pady=5)
+        self.clearzbuttoncolor='white'
+        self.clearzbutton=tk.Button(lefttopframe2,text='Clear Z',background=self.clearzbuttoncolor)
+        self.clearzbutton.grid(row=0,column=2,padx=10,pady=5)
 
-        clearFFbuttoncolor='white'
-        clearFFbutton=tk.Button(lefttopframe2,text='Clear FF',background=clearFFbuttoncolor)
-        clearFFbutton.grid(row=0,column=3,padx=10,pady=5)
+        self.clearFFbuttoncolor='white'
+        self.clearFFbutton=tk.Button(lefttopframe2,text='Clear FF',background=self.clearFFbuttoncolor)
+        self.clearFFbutton.grid(row=0,column=3,padx=10,pady=5)
 
         self.importxbuttoncolor='white'
-        importxbutton=tk.Button(lefttopframe2,text='Import X',background=self.importxbuttoncolor)
-        importxbutton.grid(row=1,column=0,padx=10,pady=5)
+        self.importxbutton=tk.Button(lefttopframe2,text='Import X',background=self.importxbuttoncolor)
+        self.importxbutton.grid(row=1,column=0,padx=10,pady=5)
 
         self.importybuttoncolor='white'
-        importybutton=tk.Button(lefttopframe2,text='Import X',background=self.importybuttoncolor)
-        importybutton.grid(row=1,column=1,padx=10,pady=5)
+        self.importybutton=tk.Button(lefttopframe2,text='Import X',background=self.importybuttoncolor)
+        self.importybutton.grid(row=1,column=1,padx=10,pady=5)
 
         self.importzbuttoncolor='white'
-        importzbutton=tk.Button(lefttopframe2,text='Import X',background=self.importzbuttoncolor)
-        importzbutton.grid(row=1,column=2,padx=10,pady=5)
+        self.importzbutton=tk.Button(lefttopframe2,text='Import X',background=self.importzbuttoncolor)
+        self.importzbutton.grid(row=1,column=2,padx=10,pady=5)
 
         self.importFFbuttoncolor='white'
-        importFFbutton=tk.Button(lefttopframe2,text='Import X',background=self.importFFbuttoncolor)
-        importFFbutton.grid(row=1,column=3,padx=10,pady=5)
+        self.importFFbutton=tk.Button(lefttopframe2,text='Import X',background=self.importFFbuttoncolor)
+        self.importFFbutton.grid(row=1,column=3,padx=10,pady=5)
 
-        clearimportbuttoncolor='white'
-        clearimportbutton=tk.Button(lefttopframe2,text='Clear Import',background=clearimportbuttoncolor)
-        clearimportbutton.grid(row=3,column=0,columnspan=2,padx=10,pady=5)
+        self.clearimportbuttoncolor='white'
+        self.clearimportbutton=tk.Button(lefttopframe2,text='Clear Import',background=self.clearimportbuttoncolor)
+        self.clearimportbutton.grid(row=3,column=0,columnspan=2,padx=10,pady=5)
 
         self.downloadAxisbuttoncolor='white'
-        downloadAxisbutton=tk.Button(lefttopframe2,text='Download Axis',background=self.downloadAxisbuttoncolor)
-        downloadAxisbutton.grid(row=3,column=2,columnspan=2,padx=10,pady=5)
+        self.downloadAxisbutton=tk.Button(lefttopframe2,text='Download Axis',background=self.downloadAxisbuttoncolor)
+        self.downloadAxisbutton.grid(row=3,column=2,columnspan=2,padx=10,pady=5)
 
         #Leftbotframe
         leftbotlabel=tk.Label(leftbotframe,text='Data Acquisition',background=leftbotcolor,font=15)
         leftbotlabel.pack(side=tk.TOP)
+
+        leftbotframe2=tk.Frame(leftbotframe,background=leftbotcolor)
+        leftbotframe2.pack(side=tk.TOP)
+
+        self.extractdatabuttoncolor='white'
+        self.extractdatabutton=tk.Button(leftbotframe2,text='Extract Data',background=self.extractdatabuttoncolor)
+        self.extractdatabutton.grid(row=0,column=0,padx=10,pady=5)
+
+        self.cleardatabuttoncolor='white'
+        self.cleardatabutton=tk.Button(leftbotframe2,text='Clear Data',background=self.cleardatabuttoncolor)
+        self.cleardatabutton.grid(row=0,column=1)
 
 
 

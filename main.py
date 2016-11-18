@@ -15,7 +15,7 @@ import PRoPat_fronthand as PPf
 
 
 ###########################TEST############################
-contZ=PPb.controllerPIDsend()
+
 ###########################################################
 
 
@@ -27,7 +27,11 @@ contZ=PPb.controllerPIDsend()
 
 
 def buildMain(froot,fapp):
-    fapp.okbutton.config(command=lambda: contZ.sendNewData(fapp))
+    contZ=PPb.controllerPID()
+    contX=PPb.controllerPID(2,3,4)
+
+    fapp.okbutton.config(command=lambda: contZ.updateKvalues(fapp,'Z'))
+    fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
     froot.mainloop()
 
 

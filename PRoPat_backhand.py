@@ -13,14 +13,13 @@
 
 #Import modules needed
 import serial as sr
-import tkinter as tk
 import re
 
 
 
 #Class definition for backhand of the PRoPat Command software
 
-class controllerPIDdisplay():                              #PID controller to display only
+class controllerPID():                              #PID controller to display only
     def __init__(self, kp=1, ki=0.001, kd=0.05):
         self.__kp = kp
         self.__ki = ki
@@ -41,12 +40,31 @@ class controllerPIDdisplay():                              #PID controller to di
     def extractValues(self,stringToScan):
         extracted_stuff = re.findall(r"[-+]?\d*\.\d+|\d+",stringToScan)
 
-class controllerPIDsend(controllerPIDdisplay):              #PID controller values to send
+    def copyPIDValues(self,other,Application,Axis):
+    	self.__kp=other.__kp
+    	self.__ki=other.__ki
+    	self.__kd=other.__kd
+    	self.updateKvalues(Application,Axis)
 
-    def sendNewData(self,Application):
-        #Method to send stuff via serial
-        Application.kdzentryvar.set('456')                  #TEST WORKS!!!!
-        a=1
+    def updateKvalues(self,Application,Axis):
+    	if(Axis=='X'):
+    		Application.kpxentryvar.set(str(self.__kp))
+    		Application.kixentryvar.set(str(self.__ki))
+    		Application.kdxentryvar.set(str(self.__kd))
+    	elif(Axis=='Y'):
+    		Application.kpyentryvar.set(str(self.__kp))
+    		Application.kiyentryvar.set(str(self.__ki))
+    		Application.kdyentryvar.set(str(self.__kd))
+    	elif(Axis=='Z'):
+    		Application.kpzentryvar.set(str(self.__kp))
+    		Application.kizentryvar.set(str(self.__ki))
+    		Application.kdzentryvar.set(str(self.__kd))
+
+
+
+
+
+    
 
 class defAxis():                                            #Points to send through serial
     def __init__(self):
