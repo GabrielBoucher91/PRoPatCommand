@@ -9,8 +9,8 @@
 
 #Import modules needed
 
-import PRoPat_backhand as PPb
-import PRoPat_fronthand as PPf
+import PRoPat_backend as PPb
+import PRoPat_frontend as PPf
 
 
 
