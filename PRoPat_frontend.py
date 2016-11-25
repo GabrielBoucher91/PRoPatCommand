@@ -41,9 +41,9 @@ class Application(tk.Frame):
         comlabel=tk.Label(bottomframe,text='COM',background=bottomcolor)
         comlabel.pack(side=tk.LEFT,padx=5,pady=5)
 
-        portentryvar=tk.StringVar()
-        portentryvar.set("1")
-        portentry=tk.Entry(bottomframe,width=7,textvariable=portentryvar)
+        self.portentryvar=tk.StringVar()
+        self.portentryvar.set("1")
+        portentry=tk.Entry(bottomframe,width=7,textvariable=self.portentryvar)
         portentry.pack(side=tk.LEFT,padx=15,pady=5)
 
 

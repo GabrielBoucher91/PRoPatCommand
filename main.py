@@ -27,10 +27,23 @@ import PRoPat_frontend as PPf
 
 
 def buildMain(froot,fapp):
+    #Creating objects in the backend of the application
+    contY=PPb.controllerPID()
     contZ=PPb.controllerPID()
-    contX=PPb.controllerPID(2,3,4)
+    contX=PPb.controllerPID()
 
-    fapp.okbutton.config(command=lambda: contZ.updateKvalues(fapp,'Z'))
+    contXold=PPb.controllerPID()
+    contYold=PPb.controllerPID()
+    contZold=PPb.controllerPID()
+
+    Xaxis=PPb.defAxis()
+    Yaxis=PPb.defAxis()
+    Zaxis=PPb.defAxis()
+    FFaxis=PPb.defAxis()
+
+
+    #Assignation of the methods for each buttons
+    fapp.okbutton.config(command=lambda: PPb.openPort(fapp))
     fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
     froot.mainloop()
 

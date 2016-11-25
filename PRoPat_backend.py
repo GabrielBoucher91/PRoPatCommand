@@ -17,7 +17,8 @@ import re
 
 
 
-#Class definition for backhand of the PRoPat Command software
+#Class definition for backend of the PRoPat Command software
+
 
 class controllerPID():                              #PID controller to display only
     def __init__(self, kp=1, ki=0.001, kd=0.05):
@@ -92,4 +93,22 @@ class dataAcquisition():                                    #Here's the data rec
 
     def clearData(self):
         slef.__data=[[None]*7]
+
+
+def openPort(Application):
+    comport='COM'+Application.portentryvar.get()
+    print(comport)
+    #Stuff for the serial communication, will need test before being implemeted
+
+def getPIDValues(Application,X,Y,Z,com):
+    a=1
+    #Send command through serial to recieve the values and assign them to the good variable
+
+def sendPIDValues(X1,X2,Y1,Y2,Z1,Z2):
+    a=1
+    #Comapres the values of the PID since last send/recieve and send the new values through serial port
+
+def extractData():
+    a=1
+    #Sends 'T\r' through the serial port and wait for the return, uses the extractValues method to add to the vector of data
 
