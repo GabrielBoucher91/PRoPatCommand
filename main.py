@@ -44,7 +44,11 @@ def buildMain(froot,fapp):
 
     #Assignation of the methods for each buttons
     fapp.okbutton.config(command=lambda: PPb.openPort(fapp))
+
     fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
+    fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contXold,contY,contYold,contZ,contZold))
+    fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contXold,contY,contYold,contZ,contZold))
+
     froot.mainloop()
 
 

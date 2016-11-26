@@ -131,11 +131,11 @@ class Application(tk.Frame):
         kizentry.grid(row=2,column=5,padx=5,pady=3)
 
         #righttopframe2
-        sendKvaluesbutton=tk.Button(righttopframe2,text='Send K values',background='white')
-        sendKvaluesbutton.grid(row=0,column=0,padx=5,pady=5)
+        self.sendKvaluesbutton=tk.Button(righttopframe2,text='Send K values',background='white')
+        self.sendKvaluesbutton.grid(row=0,column=0,padx=5,pady=5)
 
-        readKvaluesbutton=tk.Button(righttopframe2,text='Read K values',background='white')
-        readKvaluesbutton.grid(row=0,column=1,padx=5,pady=5)
+        self.readKvaluesbutton=tk.Button(righttopframe2,text='Read K values',background='white')
+        self.readKvaluesbutton.grid(row=0,column=1,padx=5,pady=5)
 
 
         #Left
