@@ -36,6 +36,8 @@ def buildMain(froot,fapp):
     contYold=PPb.controllerPID()
     contZold=PPb.controllerPID()
 
+    contTest=PPb.controllerPID()
+
     Xaxis=PPb.defAxis()
     Yaxis=PPb.defAxis()
     Zaxis=PPb.defAxis()
