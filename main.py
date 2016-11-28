@@ -32,12 +32,6 @@ def buildMain(froot,fapp):
     contZ=PPb.controllerPID()
     contX=PPb.controllerPID()
 
-    contXold=PPb.controllerPID()
-    contYold=PPb.controllerPID()
-    contZold=PPb.controllerPID()
-
-    contTest=PPb.controllerPID()
-
     Xaxis=PPb.defAxis()
     Yaxis=PPb.defAxis()
     Zaxis=PPb.defAxis()
@@ -48,8 +42,8 @@ def buildMain(froot,fapp):
     fapp.okbutton.config(command=lambda: PPb.openPort(fapp))
 
     fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
-    fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contXold,contY,contYold,contZ,contZold))
-    fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contXold,contY,contYold,contZ,contZold))
+    fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ))
+    fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ))
 
     froot.mainloop()
 

@@ -109,31 +109,43 @@ def openPort(Application):
     print(comport)
     #Stuff for the serial communication, will need test before being implemeted
 
+
 def getPIDValues(Application,X1,Y1,Z1,X2,Y2,Z2):
     print('Poulet 1')
     #Send command through serial to recieve the values and assign them to the good variable
 
-def sendPIDValues(Application,X1,X2,Y1,Y2,Z1,Z2):
+
+def sendPIDValues(Application,X2,Y2,Z2):
     a=1
     #Comapres the values of the PID since last send/recieve and send the new values through serial port
     if float(Application.kpxentryvar.get())!=X2.getKpvalue():
         print(float(Application.kpxentryvar.get()))
+        X2.changeKpValue(float(Application.kpxentryvar.get()))
     if float(Application.kixentryvar.get())!=X2.getKivalue():
         print(float(Application.kixentryvar.get()))
+        X2.changeKiValue(float(Application.kixentryvar.get()))
     if float(Application.kdxentryvar.get())!=X2.getKdvalue():
         print(float(Application.kdxentryvar.get()))
+        X2.changeKdValue(float(Application.kdxentryvar.get()))
     if float(Application.kpyentryvar.get())!=Y2.getKpvalue():
         print(float(Application.kpyentryvar.get()))
+        Y2.changeKpValue(float(Application.kpyentryvar.get()))
     if float(Application.kiyentryvar.get())!=Y2.getKivalue():
         print(float(Application.kiyentryvar.get()))
+        Y2.changeKiValue(float(Application.kiyentryvar.get()))
     if float(Application.kdyentryvar.get())!=Y2.getKdvalue():
         print(float(Application.kdyentryvar.get()))
+        Y2.changeKdValue(float(Application.kdyentryvar.get()))
     if float(Application.kpzentryvar.get())!=Z2.getKpvalue():
         print(float(Application.kpzentryvar.get()))
+        Z2.changeKpValue(float(Application.kpzentryvar.get()))
     if float(Application.kizentryvar.get())!=Z2.getKivalue():
         print(float(Application.kizentryvar.get()))
+        Z2.changeKiValue(float(Application.kizentryvar.get()))
     if float(Application.kdzentryvar.get())!=Z2.getKdvalue():
         print(float(Application.kdzentryvar.get()))
+        Z2.changeKdValue(float(Application.kdzentryvar.get()))
+
 
 
 
