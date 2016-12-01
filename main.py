@@ -44,6 +44,7 @@ def buildMain(froot,fapp):
     fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ))
     fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ))
+    fapp.importxbutton.config(command=lambda: PPb.getfile(Xaxis,froot))
 
     froot.mainloop()
 

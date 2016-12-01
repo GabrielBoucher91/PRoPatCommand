@@ -14,6 +14,7 @@
 #Import modules needed
 import serial as sr
 import re
+import tkinter.filedialog as fd
 
 
 
@@ -104,6 +105,8 @@ class dataAcquisition():                                    #Here's the data rec
         self.__data=[[None]*7]
 
 
+
+################################Methods for buttons######################################
 def openPort(Application):
     comport='COM'+Application.portentryvar.get()
     print(comport)
@@ -147,7 +150,10 @@ def sendPIDValues(Application,X2,Y2,Z2):
         Z2.changeKdValue(float(Application.kdzentryvar.get()))
 
 
-
+def getfile(Ax,root):
+    file=fd.askopenfile(parent=root,filetypes=[("Text files","*.txt")])
+    print(file.readlines())
+    file.close()
 
 def extractData():
     a=1
