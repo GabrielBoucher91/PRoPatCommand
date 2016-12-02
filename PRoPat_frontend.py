@@ -175,15 +175,15 @@ class Application(tk.Frame):
         self.importxbutton.grid(row=1,column=0,padx=10,pady=5)
 
         self.importybuttoncolor='white'
-        self.importybutton=tk.Button(lefttopframe2,text='Import X',background=self.importybuttoncolor)
+        self.importybutton=tk.Button(lefttopframe2,text='Import Y',background=self.importybuttoncolor)
         self.importybutton.grid(row=1,column=1,padx=10,pady=5)
 
         self.importzbuttoncolor='white'
-        self.importzbutton=tk.Button(lefttopframe2,text='Import X',background=self.importzbuttoncolor)
+        self.importzbutton=tk.Button(lefttopframe2,text='Import Z',background=self.importzbuttoncolor)
         self.importzbutton.grid(row=1,column=2,padx=10,pady=5)
 
         self.importFFbuttoncolor='white'
-        self.importFFbutton=tk.Button(lefttopframe2,text='Import X',background=self.importFFbuttoncolor)
+        self.importFFbutton=tk.Button(lefttopframe2,text='Import FF',background=self.importFFbuttoncolor)
         self.importFFbutton.grid(row=1,column=3,padx=10,pady=5)
 
         self.clearimportbuttoncolor='white'

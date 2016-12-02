@@ -88,6 +88,9 @@ class defAxis():                                            #Points to send thro
         for i in range(len(self.__Points)):
             self.__Points[i] = None
 
+    def getPoint(self,position):
+        return self.__Points[position]
+
     def sendPTS(self):
         a=1
 
@@ -150,10 +153,41 @@ def sendPIDValues(Application,X2,Y2,Z2):
         Z2.changeKdValue(float(Application.kdzentryvar.get()))
 
 
-def getfile(Ax,root):
+def getfile(Application,root,Ax,AxName):
     file=fd.askopenfile(parent=root,filetypes=[("Text files","*.txt")])
-    print(file.readlines())
+    i=0
+    for lines in file:
+        Ax.addPoint(i,int(lines))
+        i+=1
     file.close()
+    if(AxName=='X'):
+        Application.importxbutton.configure(background='green')
+        Application.importxbuttoncolor='green'
+    if(AxName=='Y'):
+        Application.importybutton.configure(background='green')
+        Application.importybuttoncolor='green'
+    if(AxName=='Z'):
+        Application.importzbutton.configure(background='green')
+        Application.importzbuttoncolor='green'
+    if(AxName=='FF'):
+        Application.importFFbutton.configure(background='green')
+        Application.importxFFbuttoncolor='green'
+    
+
+def clearimport(Application,root,X,Y,Z,FF):
+    X.clearPoints()
+    Y.clearPoints()
+    Z.clearPoints()
+    FF.clearPoints()
+    Application.importxbutton.configure(background='white')
+    Application.importxbuttoncolor='white'
+    Application.importybutton.configure(background='white')
+    Application.importybuttoncolor='white'
+    Application.importzbutton.configure(background='white')
+    Application.importzbuttoncolor='white'
+    Application.importFFbutton.configure(background='white')
+    Application.importFFbuttoncolor='white'
+
 
 def extractData():
     a=1

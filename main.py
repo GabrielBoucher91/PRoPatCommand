@@ -39,12 +39,21 @@ def buildMain(froot,fapp):
 
 
     #Assignation of the methods for each buttons
+    #Bottom
     fapp.okbutton.config(command=lambda: PPb.openPort(fapp))
 
-    fapp.clearimportbutton.config(command=lambda: contZ.copyPIDValues(contX,fapp,'Z'))
+
+    #Left
+    fapp.clearimportbutton.config(command=lambda: PPb.clearimport(fapp,froot,Xaxis,Yaxis,Zaxis,FFaxis))
+    fapp.importxbutton.config(command=lambda: PPb.getfile(fapp,froot,Xaxis,'X'))
+    fapp.importybutton.config(command=lambda: PPb.getfile(fapp,froot,Yaxis,'Y'))
+    fapp.importzbutton.config(command=lambda: PPb.getfile(fapp,froot,Zaxis,'Z'))
+    fapp.importFFbutton.config(command=lambda: PPb.getfile(fapp,froot,FFaxis,'FF'))
+
+    #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ))
     fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ))
-    fapp.importxbutton.config(command=lambda: PPb.getfile(Xaxis,froot))
+
 
     froot.mainloop()
 
