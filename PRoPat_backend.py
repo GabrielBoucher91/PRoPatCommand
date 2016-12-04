@@ -110,11 +110,16 @@ class dataAcquisition():                                    #Here's the data rec
 
 
 ################################Methods for buttons######################################
-def openPort(Application):
+def openPort(Application,cport):
     comport='COM'+Application.portentryvar.get()
     print(comport)
-    #Stuff for the serial communication, will need test before being implemeted
+    cport.port=comport
+    cport.baudrate=115200
+    cport.open()
+    print(cport.is_open)
 
+def disconnect(Application,cport):
+    cport.close()
 
 def getPIDValues(Application,X1,Y1,Z1,X2,Y2,Z2):
     print('Poulet 1')
@@ -188,6 +193,9 @@ def clearimport(Application,root,X,Y,Z,FF):
     Application.importFFbutton.configure(background='white')
     Application.importFFbuttoncolor='white'
 
+def downloadAxis(Application,cport):
+    cport.write(b'B\r\n')
+    print(str(cport.readline().decode("utf-8")))
 
 def extractData():
     a=1

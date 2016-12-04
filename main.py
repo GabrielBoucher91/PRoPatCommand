@@ -11,7 +11,7 @@
 
 import PRoPat_backend as PPb
 import PRoPat_frontend as PPf
-
+import serial as sr
 
 
 ###########################TEST############################
@@ -37,10 +37,13 @@ def buildMain(froot,fapp):
     Zaxis=PPb.defAxis()
     FFaxis=PPb.defAxis()
 
+    cport=sr.Serial()
+
 
     #Assignation of the methods for each buttons
     #Bottom
-    fapp.okbutton.config(command=lambda: PPb.openPort(fapp))
+    fapp.okbutton.config(command=lambda: PPb.openPort(fapp, cport))
+    fapp.quitButton.config(command=lambda: PPb.disconnect(fapp, cport))
 
 
     #Left
@@ -49,6 +52,8 @@ def buildMain(froot,fapp):
     fapp.importybutton.config(command=lambda: PPb.getfile(fapp,froot,Yaxis,'Y'))
     fapp.importzbutton.config(command=lambda: PPb.getfile(fapp,froot,Zaxis,'Z'))
     fapp.importFFbutton.config(command=lambda: PPb.getfile(fapp,froot,FFaxis,'FF'))
+
+    fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp,cport))
 
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ))
