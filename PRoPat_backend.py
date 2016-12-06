@@ -91,9 +91,6 @@ class defAxis():                                            #Points to send thro
     def getPoint(self,position):
         return self.__Points[position]
 
-    def sendPTS(self):
-        a=1
-
 
 class dataAcquisition():                                    #Here's the data recieved by the serial port from SD card
     def __init__(self):
@@ -248,3 +245,4 @@ def extractData():
 
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)
+
