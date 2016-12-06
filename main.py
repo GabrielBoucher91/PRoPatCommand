@@ -42,7 +42,7 @@ def buildMain(froot,fapp):
 
     #Assignation of the methods for each buttons
     #Bottom
-    fapp.okbutton.config(command=lambda: PPb.openPort(fapp, cport))
+    fapp.okbutton.config(command=lambda: PPb.openPort(fapp, cport,contX,contY,contZ))
     fapp.quitButton.config(command=lambda: PPb.disconnect(fapp, cport))
 
 
@@ -56,8 +56,9 @@ def buildMain(froot,fapp):
     fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp,cport))
 
     #Right
-    fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ))
-    fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ))
+    fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
+    fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ,cport))
+
 
 
     froot.mainloop()

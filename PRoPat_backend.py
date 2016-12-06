@@ -110,52 +110,97 @@ class dataAcquisition():                                    #Here's the data rec
 
 
 ################################Methods for buttons######################################
-def openPort(Application,cport):
+def openPort(Application,cport,X,Y,Z):
     comport='COM'+Application.portentryvar.get()
     print(comport)
     cport.port=comport
     cport.baudrate=115200
+    cport.timeout=1
     cport.open()
     print(cport.is_open)
+    getPIDValues(Application,X,Y,Z,cport)
 
 def disconnect(Application,cport):
     cport.close()
 
-def getPIDValues(Application,X1,Y1,Z1,X2,Y2,Z2):
+def getPIDValues(Application,X1,Y1,Z1,cport):
     print('Poulet 1')
-    #Send command through serial to recieve the values and assign them to the good variable
+    cport.write(b'r\r\n')
+    print('Poulet 2')
+    A=extractNumbers(str(cport.readline().decode("utf-8")))
+    print('Poulet 3')
+    Application.kpxentryvar.set(A[1])
+    Application.kdxentryvar.set(A[2])
+    Application.kixentryvar.set(A[3])
+    Application.kpyentryvar.set(A[4])
+    Application.kdyentryvar.set(A[5])
+    Application.kiyentryvar.set(A[6])
+    Application.kpzentryvar.set(A[7])
+    Application.kdzentryvar.set(A[8])
+    Application.kizentryvar.set(A[9])
+    X1.changeKpValue(float(A[1]))
+    X1.changeKdValue(float(A[2]))
+    X1.changeKiValue(float(A[3]))
+    Y1.changeKpValue(float(A[4]))
+    Y1.changeKdValue(float(A[5]))
+    Y1.changeKiValue(float(A[6]))
+    Z1.changeKpValue(float(A[7]))
+    Z1.changeKdValue(float(A[8]))
+    Z1.changeKiValue(float(A[9]))
+    print("New values arrived")
 
 
-def sendPIDValues(Application,X2,Y2,Z2):
-    a=1
-    #Comapres the values of the PID since last send/recieve and send the new values through serial port
+
+
+def sendPIDValues(Application,X2,Y2,Z2,cport):
+    #Compares the values of the PID since last send/recieve and send the new values through serial port
     if float(Application.kpxentryvar.get())!=X2.getKpvalue():
         print(float(Application.kpxentryvar.get()))
+        stringToSend="kpx"+str(Application.kpxentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         X2.changeKpValue(float(Application.kpxentryvar.get()))
     if float(Application.kixentryvar.get())!=X2.getKivalue():
         print(float(Application.kixentryvar.get()))
+        stringToSend="kix"+str(Application.kixentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         X2.changeKiValue(float(Application.kixentryvar.get()))
     if float(Application.kdxentryvar.get())!=X2.getKdvalue():
         print(float(Application.kdxentryvar.get()))
+        stringToSend="kdx"+str(Application.kdxentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         X2.changeKdValue(float(Application.kdxentryvar.get()))
     if float(Application.kpyentryvar.get())!=Y2.getKpvalue():
         print(float(Application.kpyentryvar.get()))
+        stringToSend="kpy"+str(Application.kpyentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Y2.changeKpValue(float(Application.kpyentryvar.get()))
     if float(Application.kiyentryvar.get())!=Y2.getKivalue():
         print(float(Application.kiyentryvar.get()))
+        stringToSend="kiy"+str(Application.kiyentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Y2.changeKiValue(float(Application.kiyentryvar.get()))
     if float(Application.kdyentryvar.get())!=Y2.getKdvalue():
         print(float(Application.kdyentryvar.get()))
+        stringToSend="kdy"+str(Application.kdyentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Y2.changeKdValue(float(Application.kdyentryvar.get()))
     if float(Application.kpzentryvar.get())!=Z2.getKpvalue():
         print(float(Application.kpzentryvar.get()))
+        stringToSend="kpz"+str(Application.kpzentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Z2.changeKpValue(float(Application.kpzentryvar.get()))
     if float(Application.kizentryvar.get())!=Z2.getKivalue():
         print(float(Application.kizentryvar.get()))
+        stringToSend="kiz"+str(Application.kizentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Z2.changeKiValue(float(Application.kizentryvar.get()))
     if float(Application.kdzentryvar.get())!=Z2.getKdvalue():
         print(float(Application.kdzentryvar.get()))
+        stringToSend="kdz"+str(Application.kdzentryvar.get()+"\r\n")
+        cport.write(bytes(stringToSend, encoding='utf-8'))
         Z2.changeKdValue(float(Application.kdzentryvar.get()))
+    print("Finished sending new values")
+    #Need send "Save\r\n" to make sure the data is saved in the flash memory
 
 
 def getfile(Application,root,Ax,AxName):
@@ -201,3 +246,5 @@ def extractData():
     a=1
     #Sends 'T\r' through the serial port and wait for the return, uses the extractValues method to add to the vector of data
 
+def extractNumbers(a):
+    return re.findall(r"[-+]?\d*\.*\d+", a)
