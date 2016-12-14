@@ -99,11 +99,15 @@ class dataAcquisition():                                    #Here's the data rec
 
     def extractValues(self,stringToScan):
         extracted_stuff = re.findall(r"[-+]?\d*\.\d+|\d+",stringToScan)
-        extracted_stuff=[int(i) for i in extracted_stuff]
+        extracted_stuff = [int(i) for i in extracted_stuff]
         self.__data += [extracted_stuff]
 
     def clearData(self):
         self.__data=[[None]*7]
+
+class dataAcquisitionRaw():
+    def __init__(self):
+        self.data = []
 
 
 
@@ -238,11 +242,24 @@ def clearimport(Application,root,X,Y,Z,FF):
 
 def downloadAxis(Application,cport):
     cport.write(b'B\r\n')
-    print(str(cport.readline().decode("utf-8")))
+    print(int(str(cport.readline().decode("utf-8"))))
 
-def extractData():
-    a=1
-    #Sends 'T\r' through the serial port and wait for the return, uses the extractValues method to add to the vector of data
+def extractData(daq, cport):
+    cport.write(b'T\r\n')
+    retvalue = []
+    block = int(str(cport.readline().decode("utf-8")))
+    print(block)
+
+    row = 1
+
+    while(row <= block*17):
+        retvalue += [str(cport.readline().decode("utf-8"))]
+        row += 1
+
+    daq.data += retvalue
+    print(daq.data)
+    print(len(daq.data))
+    print([float(i) for i in extractNumbers(daq.data[0])])
 
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)

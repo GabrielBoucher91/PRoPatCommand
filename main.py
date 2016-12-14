@@ -37,6 +37,8 @@ def buildMain(froot,fapp):
     Zaxis=PPb.defAxis()
     FFaxis=PPb.defAxis()
 
+    daq=PPb.dataAcquisitionRaw()
+
     cport=sr.Serial()
 
 
@@ -53,7 +55,9 @@ def buildMain(froot,fapp):
     fapp.importzbutton.config(command=lambda: PPb.getfile(fapp,froot,Zaxis,'Z'))
     fapp.importFFbutton.config(command=lambda: PPb.getfile(fapp,froot,FFaxis,'FF'))
 
-    fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp,cport))
+    fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp, cport))
+
+    fapp.extractdatabutton.config(command=lambda: PPb.extractData(daq, cport))
 
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))

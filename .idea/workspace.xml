@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/main.py" line="64" />
+    <bookmark url="file://$PROJECT_DIR$/main.py" line="68" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eecb3dde-f554-415f-9ccc-b156aff92a57" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PRoPat_backend.py" afterPath="$PROJECT_DIR$/PRoPat_backend.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
     </list>
     <ignored path="PRoPat_Command.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="103">
-              <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+            <state relative-caret-position="22">
+              <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
                 <element signature="e#745#773#0" expanded="true" />
               </folding>
@@ -40,21 +43,25 @@
       <file leaf-file-name="PRoPat_frontend.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PRoPat_frontend.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="310">
+            <state relative-caret-position="-1318">
               <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PRoPat_backend.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="PRoPat_backend.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PRoPat_backend.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="237" column="25" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
+            <state relative-caret-position="389">
+              <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
               <folding>
                 <element signature="e#720#739#0" expanded="true" />
                 <element signature="e#2454#2480#0" expanded="false" />
+                <element signature="e#3689#3702#0" expanded="false" />
+                <element signature="e#4637#7599#0" expanded="false" />
+                <element signature="e#7647#8341#0" expanded="false" />
+                <element signature="e#8396#8886#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -111,6 +118,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -131,7 +139,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -316,6 +323,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
@@ -372,6 +382,39 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#745#773#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRoPat_frontend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2684">
+          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PRoPat_backend.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5170">
+          <caret line="237" column="25" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
+          <folding>
+            <element signature="e#720#739#0" expanded="true" />
+            <element signature="e#2454#2480#0" expanded="false" />
+            <element signature="e#3689#3702#0" expanded="false" />
+            <element signature="e#4637#7599#0" expanded="false" />
+            <element signature="e#7647#8341#0" expanded="false" />
+            <element signature="e#8396#8886#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1210">
           <caret line="55" column="80" selection-start-line="55" selection-start-column="80" selection-end-line="55" selection-end-column="80" />
           <folding>
@@ -395,6 +438,10 @@
           <folding>
             <element signature="e#720#739#0" expanded="true" />
             <element signature="e#2454#2480#0" expanded="false" />
+            <element signature="e#3689#3702#0" expanded="false" />
+            <element signature="e#4637#7599#0" expanded="false" />
+            <element signature="e#7647#8341#0" expanded="false" />
+            <element signature="e#8396#8886#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -424,6 +471,10 @@
           <folding>
             <element signature="e#720#739#0" expanded="true" />
             <element signature="e#2454#2480#0" expanded="false" />
+            <element signature="e#3689#3702#0" expanded="false" />
+            <element signature="e#4637#7599#0" expanded="false" />
+            <element signature="e#7647#8341#0" expanded="false" />
+            <element signature="e#8396#8886#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -542,29 +593,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PRoPat_frontend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
+        <state relative-caret-position="-1318">
           <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/PRoPat_backend.py">
+    <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="237" column="25" selection-start-line="237" selection-start-column="25" selection-end-line="237" selection-end-column="25" />
+        <state relative-caret-position="22">
+          <caret line="39" column="32" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
-            <element signature="e#720#739#0" expanded="true" />
-            <element signature="e#2454#2480#0" expanded="false" />
+            <element signature="e#745#773#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/PRoPat_backend.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+        <state relative-caret-position="389">
+          <caret line="257" column="0" selection-start-line="257" selection-start-column="0" selection-end-line="257" selection-end-column="0" />
           <folding>
-            <element signature="e#745#773#0" expanded="true" />
+            <element signature="e#720#739#0" expanded="true" />
+            <element signature="e#2454#2480#0" expanded="false" />
+            <element signature="e#3689#3702#0" expanded="false" />
+            <element signature="e#4637#7599#0" expanded="false" />
+            <element signature="e#7647#8341#0" expanded="false" />
+            <element signature="e#8396#8886#0" expanded="false" />
           </folding>
         </state>
       </provider>
