@@ -99,7 +99,8 @@ class dataAcquisition():                                    #Here's the data rec
 
     def extractValues(self,stringToScan):
         extracted_stuff = re.findall(r"[-+]?\d*\.\d+|\d+",stringToScan)
-        self.__data += extracted_stuff
+        extracted_stuff=[int(i) for i in extracted_stuff]
+        self.__data += [extracted_stuff]
 
     def clearData(self):
         self.__data=[[None]*7]
