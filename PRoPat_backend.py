@@ -96,16 +96,35 @@ class defAxis():
 
 class dataAcquisition():                                    #Here's the data recieved by the serial port from SD card
     def __init__(self):
-        self.__data = [[None]*7]
-        self.__position = 0
+        self.__data = []
+        self.__X1 = []
+        self.__X2 = []
+        self.__Y1 = []
+        self.__Y2 = []
+        self.__Z1 = []
+        self.__Z2 = []
+        self.__FF = []
 
-    def extractValues(self,stringToScan):
+    def convertValues(self,stringToScan):
         extracted_stuff = re.findall(r"[-+]?\d*\.\d+|\d+",stringToScan)
-        extracted_stuff = [int(i) for i in extracted_stuff]
+        extracted_stuff = [float(i) for i in extracted_stuff]
         self.__data += [extracted_stuff]
 
     def clearData(self):
-        self.__data=[[None]*7]
+        self.__data = []
+        self.__X1 = []
+        self.__X2 = []
+        self.__Y1 = []
+        self.__Y2 = []
+        self.__Z1 = []
+        self.__Z2 = []
+        self.__FF = []
+
+    def printData(self):
+        print(self.__data)
+
+    def dispatchData(self, list):
+        a=1
 
 class dataAcquisitionRaw():
     def __init__(self):
@@ -246,7 +265,7 @@ def downloadAxis(Application,cport):
     cport.write(b'B\r\n')
     print(int(str(cport.readline().decode("utf-8"))))
 
-def extractData(daq, cport):
+def extractData(dataAq, daqraw, cport):
     cport.write(b'T\r\n')
     retvalue = []
     block = int(str(cport.readline().decode("utf-8")))
@@ -258,10 +277,11 @@ def extractData(daq, cport):
         retvalue += [str(cport.readline().decode("utf-8"))]
         row += 1
 
-    daq.data += retvalue
-    print(daq.data)
-    print(len(daq.data))
-    print([float(i) for i in extractNumbers(daq.data[0])])
+    daqraw.data += retvalue
+    for i in daqraw.data:
+        dataAq.convertValues(i)
+
+
 
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)

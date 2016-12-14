@@ -39,12 +39,14 @@ def buildMain(froot,fapp):
 
     daq=PPb.dataAcquisitionRaw()
 
+    datAq = PPb.dataAcquisition()
+
     cport=sr.Serial()
 
 
     #Assignation of the methods for each buttons
     #Bottom
-    fapp.okbutton.config(command=lambda: PPb.openPort(fapp, cport,contX,contY,contZ))
+    fapp.okbutton.config(command=lambda: PPb.openPort(fapp, cport, contX, contY, contZ))
     fapp.quitButton.config(command=lambda: PPb.disconnect(fapp, cport))
 
 
@@ -57,7 +59,7 @@ def buildMain(froot,fapp):
 
     fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp, cport))
 
-    fapp.extractdatabutton.config(command=lambda: PPb.extractData(daq, cport))
+    fapp.extractdatabutton.config(command=lambda: PPb.extractData(datAq, daq, cport))
 
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
