@@ -15,6 +15,7 @@
 import serial as sr
 import re
 import tkinter.filedialog as fd
+import matplotlib.pyplot as pt
 
 
 
@@ -77,7 +78,8 @@ class controllerPID():                              #PID controller to display o
 
     
 
-class defAxis():                                            #Points to send through serial
+class defAxis():
+    #Points to send through serial
     def __init__(self):
         self.__Points = [None]*768
 
