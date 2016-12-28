@@ -15,7 +15,7 @@
 import serial as sr
 import re
 import tkinter.filedialog as fd
-import matplotlib.pyplot as pt
+import matplotlib.pyplot as plt
 
 
 
@@ -106,11 +106,11 @@ class dataAcquisition():                                    #Here's the data rec
         self.__FF = []
 
     def convertValues(self,stringToScan):
-        extracted_stuff = re.findall(r"[-+]?\d*\.\d+|\d+",stringToScan)
+        extracted_stuff = re.findall(r"[-+]?\d*\.\d+|[-+]?\d+",stringToScan)
         extracted_stuff = [float(i) for i in extracted_stuff]
         self.__data += [extracted_stuff]
 
-    def clearData(self):
+    def clearData(self, other, cport):
         self.__data = []
         self.__X1 = []
         self.__X2 = []
@@ -119,12 +119,49 @@ class dataAcquisition():                                    #Here's the data rec
         self.__Z1 = []
         self.__Z2 = []
         self.__FF = []
+        other.data = []
+        cport.write(b'C\r\n')
 
     def printData(self):
         print(self.__data)
 
-    def dispatchData(self, list):
-        a=1
+    def dispatchData(self):
+        for i in self.__data:
+            self.__X1 += [i[0]]
+            self.__X2 += [i[1]]
+            self.__Y1 += [i[2]]
+            self.__Y2 += [i[3]]
+            self.__Z1 += [i[4]]
+            self.__Z2 += [i[5]]
+            self.__FF += [i[6]]
+
+    def displayGraph(self):
+        plt.figure(1)
+        plt.plot(self.__X1)
+        plt.plot(self.__X2)
+        plt.title("X axis position and command")
+        plt.legend("Encoder", "Command")
+        plt.ylabel("Encoder position")
+        plt.figure(2)
+        plt.plot(self.__Y1)
+        plt.plot(self.__Y2)
+        plt.title("Y axis position and command")
+        plt.legend("Encoder", "Command")
+        plt.ylabel("Encoder position")
+        plt.figure(3)
+        plt.plot(self.__Z1)
+        plt.plot(self.__Z2)
+        plt.title("Z axis position and command")
+        plt.legend("Encoder", "Command")
+        plt.ylabel("Encoder position")
+        plt.figure(5)
+        Err_x = [i - j for i, j in zip(self.__X1, self.__X2)]
+        plot(Err_x)
+        plt.title("Error for the X axis")
+        plt.legend("Error")
+        plt.ylabel("Encoder position")
+        plt.show()
+
 
 class dataAcquisitionRaw():
     def __init__(self):
@@ -270,17 +307,17 @@ def extractData(dataAq, daqraw, cport):
     retvalue = []
     block = int(str(cport.readline().decode("utf-8")))
     print(block)
-
     row = 1
-
-    while(row <= block*17):
-        retvalue += [str(cport.readline().decode("utf-8"))]
-        row += 1
-
-    daqraw.data += retvalue
+    cport.flushInput()
+    cport.flushOutput()
+    retvalue = cport.readlines()
+    for i in retvalue:
+        daqraw.data += [str(i.decode("utf-8"))]
+    retvalue = []
     for i in daqraw.data:
         dataAq.convertValues(i)
-
+    dataAq.dispatchData()
+    dataAq.displayGraph()
 
 
 def extractNumbers(a):

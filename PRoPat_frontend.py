@@ -217,4 +217,4 @@ def mainWindow():
     root = tk.Tk()
     root.geometry("1000x500+200+200")
     app = Application(root)
-    return(app,root)
+    return(app, root)

@@ -60,6 +60,7 @@ def buildMain(froot,fapp):
     fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp, cport))
 
     fapp.extractdatabutton.config(command=lambda: PPb.extractData(datAq, daq, cport))
+    fapp.cleardatabutton.config(command=lambda: datAq.clearData(daq, cport))
 
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
