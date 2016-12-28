@@ -137,16 +137,16 @@ class dataAcquisition():                                    #Here's the data rec
 
     def displayGraph(self):
         plt.figure(1)
-        plt.plot(self.__X1)
-        plt.plot(self.__X2)
+        plt.plot(self.__X1, label = "Encoder")
+        plt.plot(self.__X2, label = "Command")
         plt.title("X axis position and command")
-        plt.legend("Encoder", "Command")
+        plt.legend()
         plt.ylabel("Encoder position")
         plt.figure(2)
         plt.plot(self.__Y1)
         plt.plot(self.__Y2)
         plt.title("Y axis position and command")
-        plt.legend("Encoder", "Command")
+        plt.legend()
         plt.ylabel("Encoder position")
         plt.figure(3)
         plt.plot(self.__Z1)
@@ -154,12 +154,30 @@ class dataAcquisition():                                    #Here's the data rec
         plt.title("Z axis position and command")
         plt.legend("Encoder", "Command")
         plt.ylabel("Encoder position")
+        plt.figure(4)
+        plt.plot(self.__FF)
+        plt.title("Feed Forward value")
+        plt.legend("Feed Forward")
+        plt.ylabel("PWM value")
         plt.figure(5)
         Err_x = [i - j for i, j in zip(self.__X1, self.__X2)]
-        plot(Err_x)
+        plt.plot(Err_x)
         plt.title("Error for the X axis")
         plt.legend("Error")
         plt.ylabel("Encoder position")
+        plt.figure(6)
+        Err_y = [i - j for i, j in zip(self.__Y1, self.__Y2)]
+        plt.plot(Err_y)
+        plt.title("Error for the Y axis")
+        plt.legend("Error")
+        plt.ylabel("Encoder position")
+        plt.figure(7)
+        Err_z = [i - j for i, j in zip(self.__Z1, self.__Z2)]
+        plt.plot(Err_z)
+        plt.title("Error for the Z axis")
+        plt.legend("Error")
+        plt.ylabel("Encoder position")
+
         plt.show()
 
 
