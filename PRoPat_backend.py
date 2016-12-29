@@ -137,46 +137,46 @@ class dataAcquisition():                                    #Here's the data rec
 
     def displayGraph(self):
         plt.figure(1)
-        plt.plot(self.__X1, label = "Encoder")
-        plt.plot(self.__X2, label = "Command")
+        plt.plot(self.__X1, label="Encoder")
+        plt.plot(self.__X2, label="Command")
         plt.title("X axis position and command")
         plt.legend()
         plt.ylabel("Encoder position")
         plt.figure(2)
-        plt.plot(self.__Y1)
-        plt.plot(self.__Y2)
+        plt.plot(self.__Y1, label="Encoder")
+        plt.plot(self.__Y2, label="Command")
         plt.title("Y axis position and command")
         plt.legend()
         plt.ylabel("Encoder position")
         plt.figure(3)
-        plt.plot(self.__Z1)
-        plt.plot(self.__Z2)
+        plt.plot(self.__Z1, label="Encoder")
+        plt.plot(self.__Z2, label="Command")
         plt.title("Z axis position and command")
-        plt.legend("Encoder", "Command")
+        plt.legend()
         plt.ylabel("Encoder position")
         plt.figure(4)
-        plt.plot(self.__FF)
+        plt.plot(self.__FF, label="Feed Forward")
         plt.title("Feed Forward value")
-        plt.legend("Feed Forward")
+        plt.legend()
         plt.ylabel("PWM value")
         plt.figure(5)
-        Err_x = [i - j for i, j in zip(self.__X1, self.__X2)]
-        plt.plot(Err_x)
+        Err_x = [i - j for i, j in zip(self.__X2, self.__X1)]
+        plt.plot(Err_x, label="Error")
         plt.title("Error for the X axis")
-        plt.legend("Error")
-        plt.ylabel("Encoder position")
+        plt.legend()
+        plt.ylabel("Encoder count")
         plt.figure(6)
-        Err_y = [i - j for i, j in zip(self.__Y1, self.__Y2)]
-        plt.plot(Err_y)
+        Err_y = [i - j for i, j in zip(self.__Y2, self.__Y1)]
+        plt.plot(Err_y, label="Error")
         plt.title("Error for the Y axis")
-        plt.legend("Error")
-        plt.ylabel("Encoder position")
+        plt.legend()
+        plt.ylabel("Encoder count")
         plt.figure(7)
-        Err_z = [i - j for i, j in zip(self.__Z1, self.__Z2)]
-        plt.plot(Err_z)
+        Err_z = [i - j for i, j in zip(self.__Z2, self.__Z1)]
+        plt.plot(Err_z, label="Error")
         plt.title("Error for the Z axis")
-        plt.legend("Error")
-        plt.ylabel("Encoder position")
+        plt.legend()
+        plt.ylabel("Encoder count")
 
         plt.show()
 
@@ -337,6 +337,11 @@ def extractData(dataAq, daqraw, cport):
     dataAq.dispatchData()
     dataAq.displayGraph()
 
+def saveRawData(daqraw):
+    file = fd.asksaveasfile(mode= "w", defaultextension="*.txt", filetypes=[("Text files","*.txt")])
+    for i in daqraw.data:
+        file.write(i)
+    file.close()
 
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)

@@ -209,6 +209,9 @@ class Application(tk.Frame):
         self.cleardatabutton=tk.Button(leftbotframe2,text='Clear Data',background=self.cleardatabuttoncolor)
         self.cleardatabutton.grid(row=0,column=1)
 
+        self.saverawdatabuttoncolor='white'
+        self.saverawdatabutton=tk.Button(leftbotframe2,text='Save Raw Data',background=self.saverawdatabuttoncolor)
+        self.saverawdatabutton.grid(row=1,column=0,columnspan=2)
 
 
 

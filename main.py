@@ -61,6 +61,7 @@ def buildMain(froot,fapp):
 
     fapp.extractdatabutton.config(command=lambda: PPb.extractData(datAq, daq, cport))
     fapp.cleardatabutton.config(command=lambda: datAq.clearData(daq, cport))
+    fapp.saverawdatabutton.config(command=lambda: PPb.saveRawData(daq))
 
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
