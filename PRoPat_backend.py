@@ -74,10 +74,6 @@ class controllerPID():                              #PID controller to display o
 
 
 
-
-
-    
-
 class defAxis():
     #Points to send through serial
     def __init__(self):
@@ -282,7 +278,7 @@ def sendPIDValues(Application,X2,Y2,Z2,cport):
 
 
 def getfile(Application,root,Ax,AxName):
-    file=fd.askopenfile(parent=root,filetypes=[("Text files","*.txt")])
+    file=fd.askopenfile(parent=root,filetypes=[("Text files", "*.txt")])
     i=0
     for lines in file:
         Ax.addPoint(i,int(lines))
@@ -299,8 +295,21 @@ def getfile(Application,root,Ax,AxName):
         Application.importzbuttoncolor='green'
     if(AxName=='FF'):
         Application.importFFbutton.configure(background='green')
-        Application.importxFFbuttoncolor='green'
+        Application.importFFbuttoncolor='green'
     
+def clearAxis(Application, cport, Axname):
+    if(Axname == 'X'):
+        cport.write(b"pem333\r\n")
+        Application.clearxbuttoncolor.configure(background='green')
+    if(Axname == 'Y'):
+        cport.write(b"pem666\r\n")
+        Application.clearybuttoncolor.configure(background='green')
+    if(Axname == 'Z'):
+        cport.write(b"pem999\r\n")
+        Application.clearzbuttoncolor.configure(background='green')
+    if(Axname == 'FF'):
+        cport.write(b"pem666\r\n")
+        Application.clearFFbuttoncolor.configure(background='green')
 
 def clearimport(Application,root,X,Y,Z,FF):
     X.clearPoints()
@@ -338,7 +347,7 @@ def extractData(dataAq, daqraw, cport):
     dataAq.displayGraph()
 
 def saveRawData(daqraw):
-    file = fd.asksaveasfile(mode= "w", defaultextension="*.txt", filetypes=[("Text files","*.txt")])
+    file = fd.asksaveasfile(mode="w", defaultextension="*.txt", filetypes=[("Text files", "*.txt")])
     for i in daqraw.data:
         file.write(i)
     file.close()
