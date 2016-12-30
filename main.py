@@ -51,13 +51,16 @@ def buildMain(froot,fapp):
 
 
     #Left
+
+    fapp.clearxbutton.config(command=lambda: PPb.clearAxis(fapp,cport,'X'))
+
     fapp.clearimportbutton.config(command=lambda: PPb.clearimport(fapp,froot,Xaxis,Yaxis,Zaxis,FFaxis))
     fapp.importxbutton.config(command=lambda: PPb.getfile(fapp,froot,Xaxis,'X'))
     fapp.importybutton.config(command=lambda: PPb.getfile(fapp,froot,Yaxis,'Y'))
     fapp.importzbutton.config(command=lambda: PPb.getfile(fapp,froot,Zaxis,'Z'))
     fapp.importFFbutton.config(command=lambda: PPb.getfile(fapp,froot,FFaxis,'FF'))
 
-    fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp, cport))
+    fapp.downloadAxisbutton.config(command=lambda: PPb.downloadAxis(fapp, cport, Xaxis, Yaxis, Zaxis, FFaxis))
 
     fapp.extractdatabutton.config(command=lambda: PPb.extractData(datAq, daq, cport))
     fapp.cleardatabutton.config(command=lambda: datAq.clearData(daq, cport))

@@ -16,6 +16,7 @@ import serial as sr
 import re
 import tkinter.filedialog as fd
 import matplotlib.pyplot as plt
+import time
 
 
 
@@ -300,16 +301,21 @@ def getfile(Application,root,Ax,AxName):
 def clearAxis(Application, cport, Axname):
     if(Axname == 'X'):
         cport.write(b"pem333\r\n")
-        Application.clearxbuttoncolor.configure(background='green')
+        Application.clearxbutton.configure(background='green')
+        Application.clearxbuttoncolor = 'green'
     if(Axname == 'Y'):
         cport.write(b"pem666\r\n")
-        Application.clearybuttoncolor.configure(background='green')
+        Application.clearybutton.configure(background='green')
+        Application.clearybuttoncolor = 'green'
     if(Axname == 'Z'):
         cport.write(b"pem999\r\n")
-        Application.clearzbuttoncolor.configure(background='green')
+        Application.clearzbutton.configure(background='green')
+        Application.clearzbuttoncolor = 'green'
     if(Axname == 'FF'):
         cport.write(b"pem666\r\n")
-        Application.clearFFbuttoncolor.configure(background='green')
+        Application.clearFFbutton.configure(background='green')
+        Application.clearFFbuttoncolor = 'green'
+
 
 def clearimport(Application,root,X,Y,Z,FF):
     X.clearPoints()
@@ -325,9 +331,68 @@ def clearimport(Application,root,X,Y,Z,FF):
     Application.importFFbutton.configure(background='white')
     Application.importFFbuttoncolor='white'
 
-def downloadAxis(Application,cport):
-    cport.write(b'B\r\n')
-    print(int(str(cport.readline().decode("utf-8"))))
+
+def downloadAxis(Application,cport,X,Y,Z,FF):
+    if Application.importxbuttoncolor == 'green':
+        if Application.clearxbuttoncolor != 'green':
+            cport.write(b"pem333\r\n")
+            time.sleep(0.5)
+
+        for i in range(768):
+            stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))
+            cport.write(bytes(stringtosend, encoding='utf-8'))
+            time.sleep(0.03)
+        Application.clearxbutton.configure(background='white')
+        Application.clearxbuttoncolor = 'white'
+        Application.importxbutton.configure(background='white')
+        Application.importxbuttoncolor = 'white'
+        X.clearPoints()
+
+    if Application.importybuttoncolor == 'green':
+        if Application.clearybuttoncolor != 'green':
+            cport.write(b"pem666\r\n")
+            time.sleep(0.5)
+
+        for i in range(768):
+            stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))
+            cport.write(bytes(stringtosend, encoding='utf-8'))
+            time.sleep(0.03)
+        Application.clearybutton.configure(background='white')
+        Application.clearybuttoncolor = 'white'
+        Application.importybutton.configure(background='white')
+        Application.importybuttoncolor = 'white'
+        Y.clearPoints
+
+    if Application.importzbuttoncolor == 'green':
+        if Application.clearzbuttoncolor != 'green':
+            cport.write(b"pem666\r\n")
+            time.sleep(0.5)
+
+        for i in range(768):
+            stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))
+            cport.write(bytes(stringtosend, encoding='utf-8'))
+            time.sleep(0.03)
+        Application.clearzbutton.configure(background='white')
+        Application.clearzbuttoncolor = 'white'
+        Application.importzbutton.configure(background='white')
+        Application.importzbuttoncolor = 'white'
+        Z.clearPoints()
+
+    if Application.importFFbuttoncolor == 'green':
+        if Application.clearFFbuttoncolor != 'green':
+            cport.write(b"pem333\r\n")
+            time.sleep(0.5)
+
+        for i in range(768):
+            stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))
+            cport.write(bytes(stringtosend, encoding='utf-8'))
+            time.sleep(0.03)
+        Application.clearFFbutton.configure(background='white')
+        Application.clearFFbuttoncolor = 'white'
+        Application.importFFbutton.configure(background='white')
+        Application.importFFbuttoncolor = 'white'
+        FF.clearPoints()
+
 
 def extractData(dataAq, daqraw, cport):
     cport.write(b'T\r\n')
