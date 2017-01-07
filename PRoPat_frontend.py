@@ -64,6 +64,9 @@ class Application(tk.Frame):
         righttopframe2=tk.Frame(rightframe,background=righttopframe1color)
         righttopframe2.pack(side=tk.TOP,pady=5)
 
+        righttopframe3=tk.Frame(rightframe,background=righttopframe1color)
+        righttopframe3.pack(side=tk.TOP,pady=5)
+
         #Righttopframe1
         kpxlabel=tk.Label(righttopframe1,text='Kpx',background=righttopframe1color)
         kpxlabel.grid(row=0,column=0,padx=5,pady=3)
@@ -136,6 +139,11 @@ class Application(tk.Frame):
 
         self.readKvaluesbutton=tk.Button(righttopframe2,text='Read K values',background='white')
         self.readKvaluesbutton.grid(row=0,column=1,padx=5,pady=5)
+
+        self.savebutton=tk.Button(righttopframe2,text='Save',background='white')
+        self.savebutton.grid(row=0,column=2,padx=5,pady=5)
+
+        #righttopframe3
 
 
         #Left
