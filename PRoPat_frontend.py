@@ -64,6 +64,9 @@ class Application(tk.Frame):
         righttopframe2=tk.Frame(rightframe,background=righttopframe1color)
         righttopframe2.pack(side=tk.TOP,pady=5)
 
+        trajectorylabel=tk.Label(rightframe,text='Trajectory Control',background=rightcolor,font=15)
+        trajectorylabel.pack(side=tk.TOP)
+
         righttopframe3=tk.Frame(rightframe,background=righttopframe1color)
         righttopframe3.pack(side=tk.TOP,pady=5)
 
@@ -144,7 +147,14 @@ class Application(tk.Frame):
         self.savebutton.grid(row=0,column=2,padx=5,pady=5)
 
         #righttopframe3
+        self.initTrajbutton=tk.Button(righttopframe3,text='Init',background='white')
+        self.initTrajbutton.grid(row=0,column=0,padx=5,pady=5)
 
+        self.startTrajbutton=tk.Button(righttopframe3,text='Start',background='white')
+        self.startTrajbutton.grid(row=0,column=1,padx=5,pady=5)
+
+        self.stopTrajbutton=tk.Button(righttopframe3,text='Stop',background='white')
+        self.stopTrajbutton.grid(row=0,column=2,padx=5,pady=5)
 
         #Left
         lefttopcolor='light grey'

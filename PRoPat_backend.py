@@ -393,6 +393,9 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         Application.importFFbuttoncolor = 'white'
         FF.clearPoints()
 
+def savePIDvalues(cport):
+    cport.write(b'Save\r\n')
+
 
 def extractData(dataAq, daqraw, cport):
     cport.write(b'T\r\n')

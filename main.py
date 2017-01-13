@@ -69,6 +69,8 @@ def buildMain(froot,fapp):
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
     fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ,cport))
+    fapp.savebutton.config(command=lambda: PPb.savePIDvalues(cport))
+
 
 
 
