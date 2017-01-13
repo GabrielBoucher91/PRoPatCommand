@@ -53,6 +53,9 @@ def buildMain(froot,fapp):
     #Left
 
     fapp.clearxbutton.config(command=lambda: PPb.clearAxis(fapp,cport,'X'))
+    fapp.clearybutton.config(command=lambda: PPb.clearAxis(fapp,cport,'Y'))
+    fapp.clearzbutton.config(command=lambda: PPb.clearAxis(fapp,cport,'Z'))
+    fapp.clearFFbutton.config(command=lambda: PPb.clearAxis(fapp,cport,'FF'))
 
     fapp.clearimportbutton.config(command=lambda: PPb.clearimport(fapp,froot,Xaxis,Yaxis,Zaxis,FFaxis))
     fapp.importxbutton.config(command=lambda: PPb.getfile(fapp,froot,Xaxis,'X'))
@@ -70,6 +73,10 @@ def buildMain(froot,fapp):
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
     fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ,cport))
     fapp.savebutton.config(command=lambda: PPb.savePIDvalues(cport))
+
+    fapp.initTrajbutton.config(command=lambda: PPb.initTraj(cport))
+    fapp.startTrajbutton.config(command=lambda: PPb.startTraj(cport))
+    fapp.stopTrajbutton.config(command=lambda: PPb.stopTraj(cport))
 
 
 

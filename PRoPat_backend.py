@@ -339,8 +339,9 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))
+            stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
+            print(stringtosend)
             time.sleep(0.03)
         Application.clearxbutton.configure(background='white')
         Application.clearxbuttoncolor = 'white'
@@ -354,7 +355,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))
+            stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
             time.sleep(0.03)
         Application.clearybutton.configure(background='white')
@@ -369,7 +370,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))
+            stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
             time.sleep(0.03)
         Application.clearzbutton.configure(background='white')
@@ -384,7 +385,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))
+            stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
             time.sleep(0.03)
         Application.clearFFbutton.configure(background='white')
@@ -419,6 +420,15 @@ def saveRawData(daqraw):
     for i in daqraw.data:
         file.write(i)
     file.close()
+
+def initTraj(cport):
+    cport.write(b'pcm414\r\n')
+
+def startTraj(cport):
+    cport.write(b'pcm424\r\n')
+
+def stopTraj(cport):
+    cport.write(b'pcm404\r\n')
 
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)
