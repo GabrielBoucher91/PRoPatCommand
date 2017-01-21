@@ -342,7 +342,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
             print(stringtosend)
-            time.sleep(0.03)
+            time.sleep(0.09)
         Application.clearxbutton.configure(background='white')
         Application.clearxbuttoncolor = 'white'
         Application.importxbutton.configure(background='white')
@@ -357,7 +357,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         for i in range(768):
             stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
-            time.sleep(0.03)
+            time.sleep(0.09)
         Application.clearybutton.configure(background='white')
         Application.clearybuttoncolor = 'white'
         Application.importybutton.configure(background='white')
@@ -372,7 +372,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         for i in range(768):
             stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
-            time.sleep(0.03)
+            time.sleep(0.09)
         Application.clearzbutton.configure(background='white')
         Application.clearzbuttoncolor = 'white'
         Application.importzbutton.configure(background='white')
@@ -399,13 +399,13 @@ def savePIDvalues(cport):
 
 
 def extractData(dataAq, daqraw, cport):
+    cport.flushInput()
+    cport.flushOutput()
     cport.write(b'T\r\n')
     retvalue = []
     block = int(str(cport.readline().decode("utf-8")))
     print(block)
     row = 1
-    cport.flushInput()
-    cport.flushOutput()
     retvalue = cport.readlines()
     for i in retvalue:
         daqraw.data += [str(i.decode("utf-8"))]
