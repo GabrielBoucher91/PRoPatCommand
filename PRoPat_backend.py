@@ -357,12 +357,13 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         for i in range(768):
             stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
+            print(stringtosend)
             time.sleep(0.09)
         Application.clearybutton.configure(background='white')
         Application.clearybuttoncolor = 'white'
         Application.importybutton.configure(background='white')
         Application.importybuttoncolor = 'white'
-        Y.clearPoints
+        Y.clearPoints()
 
     if Application.importzbuttoncolor == 'green':
         if Application.clearzbuttoncolor != 'green':
@@ -372,6 +373,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         for i in range(768):
             stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
+            print(stringtosend)
             time.sleep(0.09)
         Application.clearzbutton.configure(background='white')
         Application.clearzbuttoncolor = 'white'
@@ -387,6 +389,7 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
         for i in range(768):
             stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))+'\r\n'
             cport.write(bytes(stringtosend, encoding='utf-8'))
+            print(stringtosend)
             time.sleep(0.03)
         Application.clearFFbutton.configure(background='white')
         Application.clearFFbuttoncolor = 'white'
