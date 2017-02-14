@@ -339,10 +339,13 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))+'\r\n'
-            cport.write(bytes(stringtosend, encoding='utf-8'))
+            stringtosend = 'pam'+str(i)+'dm'+str(X.getPoint(i))+'\r'
+            a=cport.write(bytes(stringtosend, encoding='utf-8'))
             print(stringtosend)
+            print(a)
+            cport.flush()
             time.sleep(0.09)
+
         Application.clearxbutton.configure(background='white')
         Application.clearxbuttoncolor = 'white'
         Application.importxbutton.configure(background='white')
@@ -355,9 +358,11 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))+'\r\n'
-            cport.write(bytes(stringtosend, encoding='utf-8'))
+            stringtosend = 'pam'+str(i+768)+'dm'+str(Y.getPoint(i))+'\r'
+            a=cport.write(bytes(stringtosend, encoding='utf-8'))
             print(stringtosend)
+            print(a)
+            cport.flush()
             time.sleep(0.09)
         Application.clearybutton.configure(background='white')
         Application.clearybuttoncolor = 'white'
@@ -371,9 +376,11 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))+'\r\n'
-            cport.write(bytes(stringtosend, encoding='utf-8'))
+            stringtosend = 'pam'+str(i+1536)+'dm'+str(Z.getPoint(i))+'\r'
+            a=cport.write(bytes(stringtosend, encoding='utf-8'))
             print(stringtosend)
+            print(a)
+            cport.flush()
             time.sleep(0.09)
         Application.clearzbutton.configure(background='white')
         Application.clearzbuttoncolor = 'white'
@@ -387,10 +394,12 @@ def downloadAxis(Application,cport,X,Y,Z,FF):
             time.sleep(0.5)
 
         for i in range(768):
-            stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))+'\r\n'
-            cport.write(bytes(stringtosend, encoding='utf-8'))
+            stringtosend = 'pam'+str(i+2304)+'dm'+str(FF.getPoint(i))+'\r'
+            a=cport.write(bytes(stringtosend, encoding='utf-8'))
             print(stringtosend)
-            time.sleep(0.03)
+            print(a)
+            cport.flush()
+            time.sleep(0.09)
         Application.clearFFbutton.configure(background='white')
         Application.clearFFbuttoncolor = 'white'
         Application.importFFbutton.configure(background='white')
