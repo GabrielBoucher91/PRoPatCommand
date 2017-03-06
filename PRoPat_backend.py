@@ -445,3 +445,6 @@ def stopTraj(cport):
 def extractNumbers(a):
     return re.findall(r"[-+]?\d*\.*\d+", a)
 
+def sendMaxTorque(app, cport):
+    stringToSend="tmz"+str(app.tmzentryvar.get())+"\r"
+    cport.write(bytes(stringToSend, encoding='utf-8'))

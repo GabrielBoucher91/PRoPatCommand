@@ -150,8 +150,11 @@ class Application(tk.Frame):
         self.readKvaluesbutton=tk.Button(righttopframe2,text='Read K values',background='white')
         self.readKvaluesbutton.grid(row=0,column=1,padx=5,pady=5)
 
+        self.sendMaxTorquebutton=tk.Button(righttopframe2,text='Send Max Torque',background='white')
+        self.sendMaxTorquebutton.grid(row=0,column=2,padx=5,pady=5)
+
         self.savebutton=tk.Button(righttopframe2,text='Save',background='white')
-        self.savebutton.grid(row=0,column=2,padx=5,pady=5)
+        self.savebutton.grid(row=0,column=3,padx=5,pady=5)
 
         #righttopframe3
         self.initTrajbutton=tk.Button(righttopframe3,text='Init',background='white')

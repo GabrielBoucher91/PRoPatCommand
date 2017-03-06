@@ -72,6 +72,7 @@ def buildMain(froot,fapp):
     #Right
     fapp.readKvaluesbutton.config(command=lambda: PPb.getPIDValues(fapp,contX,contY,contZ,cport))
     fapp.sendKvaluesbutton.config(command=lambda: PPb.sendPIDValues(fapp,contX,contY,contZ,cport))
+    fapp.sendMaxTorquebutton.config(command=lambda: PPb.sendMaxTorque(fapp,cport))
     fapp.savebutton.config(command=lambda: PPb.savePIDvalues(cport))
 
     fapp.initTrajbutton.config(command=lambda: PPb.initTraj(cport))
