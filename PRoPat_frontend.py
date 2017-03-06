@@ -136,6 +136,13 @@ class Application(tk.Frame):
         kizentry=tk.Entry(righttopframe1,width=10,textvariable=self.kizentryvar)
         kizentry.grid(row=2,column=5,padx=5,pady=3)
 
+        tmzlabel=tk.Label(righttopframe1,text='tmz',background=righttopframe1color)
+        tmzlabel.grid(row=3,column=4,padx=5,pady=5)
+
+        self.tmzentryvar=tk.StringVar()
+        tmzentry=tk.Entry(righttopframe1,width=10,textvariable=self.tmzentryvar)
+        tmzentry.grid(row=3,column=5,padx=5,pady=5)
+
         #righttopframe2
         self.sendKvaluesbutton=tk.Button(righttopframe2,text='Send K values',background='white')
         self.sendKvaluesbutton.grid(row=0,column=0,padx=5,pady=5)
