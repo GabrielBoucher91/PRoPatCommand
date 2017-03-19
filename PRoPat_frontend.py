@@ -156,6 +156,9 @@ class Application(tk.Frame):
         self.savebutton=tk.Button(righttopframe2,text='Save',background='white')
         self.savebutton.grid(row=0,column=3,padx=5,pady=5)
 
+        self.getTmaxbutton=tk.Button(righttopframe2,text='Get Torque Max',background='white')
+        self.getTmaxbutton.grid(row=1,column=2,padx=5,pady=5)
+
         #righttopframe3
         self.initTrajbutton=tk.Button(righttopframe3,text='Init',background='white')
         self.initTrajbutton.grid(row=0,column=0,padx=5,pady=5)

@@ -224,8 +224,11 @@ def getPIDValues(Application,X1,Y1,Z1,cport):
     Z1.changeKiValue(float(A[9]))
     print("New values arrived")
 
-
-
+def getTmaxValue(cport):
+    print('Getting max torque value')
+    cport.write(b'K\r')
+    A=extractNumbers(str(cport.readline().decode("utf-8")))
+    print(A)
 
 def sendPIDValues(Application,X2,Y2,Z2,cport):
     #Compares the values of the PID since last send/recieve and send the new values through serial port
@@ -447,4 +450,5 @@ def extractNumbers(a):
 
 def sendMaxTorque(app, cport):
     stringToSend="tmz"+str(app.tmzentryvar.get())+"\r"
+    print(stringToSend)
     cport.write(bytes(stringToSend, encoding='utf-8'))
