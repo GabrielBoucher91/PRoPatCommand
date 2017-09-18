@@ -108,6 +108,8 @@ class dataAcquisition():                                    #Here's the data rec
         self.__data += [extracted_stuff]
 
     def clearData(self, other, cport):
+        cport.flushInput()
+        cport.flushOutput()
         self.__data = []
         self.__X1 = []
         self.__X2 = []
@@ -123,7 +125,9 @@ class dataAcquisition():                                    #Here's the data rec
         print(self.__data)
 
     def dispatchData(self):
+        debug_counter = 0
         for i in self.__data:
+            print(debug_counter)
             self.__X1 += [i[0]]
             self.__X2 += [i[1]]
             self.__Y1 += [i[2]]
@@ -131,6 +135,7 @@ class dataAcquisition():                                    #Here's the data rec
             self.__Z1 += [i[4]]
             self.__Z2 += [i[5]]
             self.__FF += [i[6]]
+            debug_counter += 1
 
     def displayGraph(self):
         plt.figure(1)
